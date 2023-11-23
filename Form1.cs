@@ -13,7 +13,7 @@ namespace tooted
 {
     public partial class Form1 : Form
     {
-        SqlConnection connect=new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|Toote_DB.mdf;Integrated Security=True");
+        SqlConnection connect=new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\opilane\source\repos\tooted\AppData\Toote_DB.mdf;Integrated Security=True");
         SqlDataAdapter adapter_toode, adapter_kategooria;
         SqlCommand command;
         public Form1()
@@ -22,10 +22,7 @@ namespace tooted
             NaitaAndmed(); 
             NaitaKategooriad();
         }
-        public void Lisa_Kategooriad()
-        {
-
-        }
+        
         public void NaitaAndmed()
         {
             connect.Open();
@@ -53,12 +50,28 @@ namespace tooted
 
         private void button1_Click(object sender, EventArgs e)
         {
-            connect.Open();
-            command = new SqlCommand("INSERT INTO Kategooriad(Kategooria_nimetus)VALUES (@kat)",connect);
-            command.Parameters.AddWithValue("@kat",KategooriaBox1.Text);
-            command.ExecuteNonQuery();
-            connect.Close();
-            NaitaKategooriad();
+            if (Toode_txt.Text.Trim()!=string.Empty && Kogus_txt.Text.Trim()!=string.Empty && Hind_txt.Text.Trim()!=string.Empty && KategooriaBox1.SelectedItem!=null)
+            {
+                try
+                {
+                    connect.Open();
+                    command = new SqlCommand("INSERT INTO Tooted (Id,ToodeNimetus,Kogus,Hind,Pilt,Kategooriad) VALUES (@id,@toode,@kogus,@hind,@pilt,@kat)", connect);
+                    command.Parameters.AddWithValue("@id", id_txt.Text);
+                    command.Parameters.AddWithValue("@toode", Toode_txt.Text);
+                    command.Parameters.AddWithValue("@kogus", Kogus_txt.Text);
+                    command.Parameters.AddWithValue("@hind", Hind_txt.Text);
+                    command.Parameters.AddWithValue("@pilt", Pilt_txt.Text);
+                    command.Parameters.AddWithValue("@kat", KategooriaBox1.SelectedIndex + 1);
+
+                    command.ExecuteNonQuery();
+                    connect.Close();
+                    NaitaAndmed();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Andmebaasiga viga!");
+                }
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -76,6 +89,16 @@ namespace tooted
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
         {
 
         }

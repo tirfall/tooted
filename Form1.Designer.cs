@@ -35,11 +35,15 @@ namespace tooted
             this.label1 = new System.Windows.Forms.Label();
             this.Lisa_btn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.Kogus_txt = new System.Windows.Forms.TextBox();
+            this.Toode_txt = new System.Windows.Forms.TextBox();
+            this.Hind_txt = new System.Windows.Forms.TextBox();
+            this.id_txt = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.Pilt_txt = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,15 +96,6 @@ namespace tooted
             this.label2.Text = "Hind:";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(135, 170);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 4;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -110,14 +105,6 @@ namespace tooted
             this.label3.Size = new System.Drawing.Size(78, 26);
             this.label3.TabIndex = 7;
             this.label3.Text = "Toode:";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(135, 131);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 6;
             // 
             // label4
             // 
@@ -129,25 +116,78 @@ namespace tooted
             this.label4.TabIndex = 9;
             this.label4.Text = "Kogus:";
             // 
-            // comboBox3
+            // Kogus_txt
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(135, 93);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 21);
-            this.comboBox3.TabIndex = 8;
+            this.Kogus_txt.Location = new System.Drawing.Point(135, 98);
+            this.Kogus_txt.Name = "Kogus_txt";
+            this.Kogus_txt.Size = new System.Drawing.Size(121, 20);
+            this.Kogus_txt.TabIndex = 10;
+            // 
+            // Toode_txt
+            // 
+            this.Toode_txt.Location = new System.Drawing.Point(135, 132);
+            this.Toode_txt.Name = "Toode_txt";
+            this.Toode_txt.Size = new System.Drawing.Size(121, 20);
+            this.Toode_txt.TabIndex = 11;
+            // 
+            // Hind_txt
+            // 
+            this.Hind_txt.Location = new System.Drawing.Point(135, 170);
+            this.Hind_txt.Name = "Hind_txt";
+            this.Hind_txt.Size = new System.Drawing.Size(121, 20);
+            this.Hind_txt.TabIndex = 12;
+            // 
+            // id_txt
+            // 
+            this.id_txt.Location = new System.Drawing.Point(135, 24);
+            this.id_txt.Name = "id_txt";
+            this.id_txt.Size = new System.Drawing.Size(121, 20);
+            this.id_txt.TabIndex = 14;
+            this.id_txt.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
+            this.label5.Location = new System.Drawing.Point(38, 19);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(40, 26);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "ID:";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
+            // Pilt_txt
+            // 
+            this.Pilt_txt.Location = new System.Drawing.Point(135, 61);
+            this.Pilt_txt.Name = "Pilt_txt";
+            this.Pilt_txt.Size = new System.Drawing.Size(121, 20);
+            this.Pilt_txt.TabIndex = 16;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
+            this.label6.Location = new System.Drawing.Point(38, 56);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(49, 26);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "Pilt:";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Pilt_txt);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.id_txt);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.Hind_txt);
+            this.Controls.Add(this.Toode_txt);
+            this.Controls.Add(this.Kogus_txt);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.Lisa_btn);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.KategooriaBox1);
@@ -170,11 +210,15 @@ namespace tooted
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button Lisa_btn;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.TextBox Kogus_txt;
+        private System.Windows.Forms.TextBox Toode_txt;
+        private System.Windows.Forms.TextBox Hind_txt;
+        private System.Windows.Forms.TextBox id_txt;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox Pilt_txt;
+        private System.Windows.Forms.Label label6;
     }
 }
 

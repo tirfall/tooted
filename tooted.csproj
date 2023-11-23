@@ -96,17 +96,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Toote_DB.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Toote_DB_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <Resource Include="AppData\Toote_DB.mdf" />
+    <Content Include="AppData\Toote_DB_log.ldf">
       <DependentUpon>Toote_DB.mdf</DependentUpon>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="AppData\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
       <Visible>False</Visible>
