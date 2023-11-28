@@ -27,7 +27,9 @@ namespace tooted
         {
             connect.Open();
             DataTable dt_toode = new DataTable();
-            adapter_toode = new SqlDataAdapter("SELECT * FROM Tooted", connect);
+            
+            adapter_toode = new SqlDataAdapter("SELECT Tooted.ID, Tooted.ToodeNimetus,Tooted.Kogus, Tooted.Hind, Tooted.Pilt, Tooted.Kogus,Kategooriad.kategooria_nimetus from Tooted INNER JOIN Kategooriad on Tooted.Id=Kategooriad.Id", connect);
+            
             adapter_toode.Fill(dt_toode);
             dataGridView1.DataSource= dt_toode;
 
@@ -41,6 +43,7 @@ namespace tooted
             DataTable dt_kat = new DataTable();
             adapter_kategooria.Fill(dt_kat);
             foreach (DataRow item in dt_kat.Rows) 
+
             {
                 KategooriaBox1.Items.Add(item["Kategooria_nimetus"]);
             }
@@ -62,6 +65,26 @@ namespace tooted
                     command.Parameters.AddWithValue("@hind", Hind_txt.Text);
                     command.Parameters.AddWithValue("@pilt", Pilt_txt.Text);
                     command.Parameters.AddWithValue("@kat", KategooriaBox1.SelectedIndex + 1);
+
+                    command.ExecuteNonQuery();
+                    connect.Close();
+                    NaitaAndmed();
+                }
+                catch (Exception)
+                {
+                MessageBox.Show("Andmebaasiga viga!");
+                }
+            }
+        }
+        private void Kusta_but_Click(object sender, EventArgs e)
+        {
+            if (id_txt.Text.Trim() != string.Empty)
+            {
+                try
+                {
+                    connect.Open();
+                    command = new SqlCommand("DELETE FROM Tooted WHERE id=@id", connect);
+                    command.Parameters.AddWithValue("@id", id_txt.Text);
 
                     command.ExecuteNonQuery();
                     connect.Close();

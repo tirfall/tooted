@@ -44,6 +44,7 @@ namespace tooted
             this.label5 = new System.Windows.Forms.Label();
             this.Pilt_txt = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.Kusta_but = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -81,7 +82,7 @@ namespace tooted
             this.Lisa_btn.Name = "Lisa_btn";
             this.Lisa_btn.Size = new System.Drawing.Size(75, 23);
             this.Lisa_btn.TabIndex = 3;
-            this.Lisa_btn.Text = "Lisa kategooria";
+            this.Lisa_btn.Text = "Lisa";
             this.Lisa_btn.UseVisualStyleBackColor = true;
             this.Lisa_btn.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -173,11 +174,22 @@ namespace tooted
             this.label6.TabIndex = 15;
             this.label6.Text = "Pilt:";
             // 
+            // Kusta_but
+            // 
+            this.Kusta_but.Location = new System.Drawing.Point(647, 98);
+            this.Kusta_but.Name = "Kusta_but";
+            this.Kusta_but.Size = new System.Drawing.Size(75, 23);
+            this.Kusta_but.TabIndex = 17;
+            this.Kusta_but.Text = "Kusta";
+            this.Kusta_but.UseVisualStyleBackColor = true;
+            this.Kusta_but.Click += new System.EventHandler(this.Kusta_but_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Kusta_but);
             this.Controls.Add(this.Pilt_txt);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.id_txt);
@@ -203,6 +215,7 @@ namespace tooted
 
         
 
+
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
@@ -219,6 +232,7 @@ namespace tooted
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox Pilt_txt;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button Kusta_but;
     }
 }
 
