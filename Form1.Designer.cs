@@ -45,16 +45,20 @@ namespace tooted
             this.Pilt_txt = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.Kusta_but = new System.Windows.Forms.Button();
+            this.Toode_pictureBox = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Toode_pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(24, 241);
+            this.dataGridView1.Location = new System.Drawing.Point(25, 289);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(744, 184);
+            this.dataGridView1.Size = new System.Drawing.Size(744, 244);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // KategooriaBox1
             // 
@@ -74,11 +78,10 @@ namespace tooted
             this.label1.Size = new System.Drawing.Size(129, 26);
             this.label1.TabIndex = 2;
             this.label1.Text = "Kategooria: ";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // Lisa_btn
             // 
-            this.Lisa_btn.Location = new System.Drawing.Point(647, 170);
+            this.Lisa_btn.Location = new System.Drawing.Point(302, 61);
             this.Lisa_btn.Name = "Lisa_btn";
             this.Lisa_btn.Size = new System.Drawing.Size(75, 23);
             this.Lisa_btn.TabIndex = 3;
@@ -95,7 +98,6 @@ namespace tooted
             this.label2.Size = new System.Drawing.Size(63, 26);
             this.label2.TabIndex = 5;
             this.label2.Text = "Hind:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -144,7 +146,6 @@ namespace tooted
             this.id_txt.Name = "id_txt";
             this.id_txt.Size = new System.Drawing.Size(121, 20);
             this.id_txt.TabIndex = 14;
-            this.id_txt.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // label5
             // 
@@ -155,7 +156,6 @@ namespace tooted
             this.label5.Size = new System.Drawing.Size(40, 26);
             this.label5.TabIndex = 13;
             this.label5.Text = "ID:";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // Pilt_txt
             // 
@@ -176,7 +176,7 @@ namespace tooted
             // 
             // Kusta_but
             // 
-            this.Kusta_but.Location = new System.Drawing.Point(647, 98);
+            this.Kusta_but.Location = new System.Drawing.Point(302, 21);
             this.Kusta_but.Name = "Kusta_but";
             this.Kusta_but.Size = new System.Drawing.Size(75, 23);
             this.Kusta_but.TabIndex = 17;
@@ -184,11 +184,31 @@ namespace tooted
             this.Kusta_but.UseVisualStyleBackColor = true;
             this.Kusta_but.Click += new System.EventHandler(this.Kusta_but_Click);
             // 
+            // Toode_pictureBox
+            // 
+            this.Toode_pictureBox.Location = new System.Drawing.Point(519, 24);
+            this.Toode_pictureBox.Name = "Toode_pictureBox";
+            this.Toode_pictureBox.Size = new System.Drawing.Size(240, 192);
+            this.Toode_pictureBox.TabIndex = 18;
+            this.Toode_pictureBox.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(519, 242);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 19;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 545);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Toode_pictureBox);
             this.Controls.Add(this.Kusta_but);
             this.Controls.Add(this.Pilt_txt);
             this.Controls.Add(this.label6);
@@ -206,8 +226,8 @@ namespace tooted
             this.Controls.Add(this.dataGridView1);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Toode_pictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -233,6 +253,8 @@ namespace tooted
         private System.Windows.Forms.TextBox Pilt_txt;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button Kusta_but;
+        private System.Windows.Forms.PictureBox Toode_pictureBox;
+        private System.Windows.Forms.Button button1;
     }
 }
 

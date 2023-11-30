@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,7 +33,15 @@ namespace tooted
             
             adapter_toode.Fill(dt_toode);
             dataGridView1.DataSource= dt_toode;
-
+            DataGridViewComboBoxColumn combo_kat = new DataGridViewComboBoxColumn();
+            foreach(DataRow item in dt_toode.Rows)
+            {
+                if (!combo_kat.Items.Contains(item["Kategooria_nimetus"]))
+                {
+                    combo_kat.Items.Add(item["Kategooria_nimetus"]);
+                }
+            }
+            dataGridView1.Columns.Add(combo_kat);
             connect.Close();
 
         }
@@ -55,8 +64,8 @@ namespace tooted
         {
             if (Toode_txt.Text.Trim()!=string.Empty && Kogus_txt.Text.Trim()!=string.Empty && Hind_txt.Text.Trim()!=string.Empty && KategooriaBox1.SelectedItem!=null)
             {
-                try
-                {
+                //try
+                //{
                     connect.Open();
                     command = new SqlCommand("INSERT INTO Tooted (Id,ToodeNimetus,Kogus,Hind,Pilt,Kategooriad) VALUES (@id,@toode,@kogus,@hind,@pilt,@kat)", connect);
                     command.Parameters.AddWithValue("@id", id_txt.Text);
@@ -69,11 +78,11 @@ namespace tooted
                     command.ExecuteNonQuery();
                     connect.Close();
                     NaitaAndmed();
-                }
-                catch (Exception)
-                {
-                MessageBox.Show("Andmebaasiga viga!");
-                }
+                //}
+                //catch (Exception)
+                //{
+                //MessageBox.Show("Andmebaasiga viga!");
+                //}
             }
         }
         private void Kusta_but_Click(object sender, EventArgs e)
@@ -97,31 +106,37 @@ namespace tooted
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        
+        string kat;
+        SaveFileDialog save;
+        OpenFileDialog open;
+        private void button1_Click_1(object sender, EventArgs e)
         {
+            open = new OpenFileDialog();
+            open.InitialDirectory= @"C:\Users\opilane\Pictures";
+            open.Multiselect = true;
+            open.Filter = "Images Files(*.jpeg;*.bmp;*.png;*.jpg)|*.jpeg;*.bmp;*.png;*.jpg";
 
+            FileInfo open_info = new FileInfo(@"C:\Users\opilane\source\repos\tooted\pildid"+open.FileName);
+            if(open.ShowDialog()==DialogResult.OK && Toode_txt.Text != null)
+            {
+                save = new SaveFileDialog();
+                save.InitialDirectory=Path.GetFullPath(@"..\..\pildid");
+                save.FileName=Toode_txt.Text+Path.GetExtension(open.FileName);
+                save.Filter="Images" + Path.GetExtension(open.FileName)+"|"+Path.GetExtension(open.FileName);
+                if (save.ShowDialog()==DialogResult.OK)
+                {
+                    File.Copy(open.FileName, save.FileName);
+                    Toode_pictureBox.Image=Image.FromFile(save.FileName);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Puudub toode nimetus");
+            }
         }
-        private void label1_Click(object sender, EventArgs e)
-        {
-            
-        }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
