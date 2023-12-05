@@ -116,7 +116,6 @@ namespace tooted
             open.InitialDirectory= @"C:\Users\opilane\Pictures";
             open.Multiselect = true;
             open.Filter = "Images Files(*.jpeg;*.bmp;*.png;*.jpg)|*.jpeg;*.bmp;*.png;*.jpg";
-
             FileInfo open_info = new FileInfo(@"C:\Users\opilane\source\repos\tooted\pildid"+open.FileName);
             if(open.ShowDialog()==DialogResult.OK && Toode_txt.Text != null)
             {
